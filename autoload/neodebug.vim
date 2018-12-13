@@ -1718,6 +1718,8 @@ function! neodebug#DeleteShotcut()
     exec printf("unmap %s", g:neodbg_keymap_next)
     exec printf("unmap %s", g:neodbg_keymap_step_into)
     exec printf("unmap %s", g:neodbg_keymap_step_out)
+    exec printf("unmap %s", g:neodbg_keymap_toggle_console_win)
+    exec printf("unmap %s", g:neodbg_keymap_terminate_debugger)
 endfunction
 
 function! neodebug#InstallMenu()
