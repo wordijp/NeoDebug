@@ -315,6 +315,11 @@ endfunction
 
 let s:neodbg_init_flag = 1
 function! s:NeoDebugStart(cmd)
+    " Initialize
+    let s:completers = []
+    let s:breakpoints = {}
+    let s:neodbg_cmd_historys = [" "]
+
     let s:startwin = win_getid(winnr())
     let s:startsigncolumn = &signcolumn
 
