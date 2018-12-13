@@ -1530,7 +1530,9 @@ function! s:NeoDebugGotoFile(fname, lnum)
     let wid = win_getid(winnr())
 
     if win_gotoid(s:startwin)
-        let fname = fnamemodify(fnamemodify(fname, ":t"), ":p")
+        "let fname = fnamemodify(fnamemodify(fname, ":t"), ":p")
+        " Current directory is keep project root
+        let fname = fnamemodify(fname, ":p")
 
         if filereadable(fname)
             if lnum =~ '^[0-9]*$'
