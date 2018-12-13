@@ -1672,7 +1672,7 @@ function! neodebug#InstallShotcut()
     noremap <buffer><silent> <Tab> ""
     noremap <buffer><silent> <S-Tab> ""
 
-    noremap <buffer><silent> <ESC> :call neodebug#CloseConsoleWindow()<CR>
+    noremap <buffer><silent> <ESC> :call NeoDebugGotoStartWin()<cr>
 
     inoremap <expr><buffer> <silent> <CR> pumvisible() ? "\<c-y><c-o>:call NeoDebug(getline('.'), 'i')<cr>" : "<c-o>:call NeoDebug(getline('.'), 'i')<cr>"
     " inoremap <buffer> <silent> <C-CR> :<c-o>:call NeoDebug("", 'i')<cr>
@@ -1703,7 +1703,7 @@ function! neodebug#InstallShotcut()
     exe printf("nmap <silent> %s :call neodebug#ToggleConsoleWindow()<cr>", g:neodbg_keymap_toggle_console_win)
     exe printf("map! <silent> %s <c-o>:call neodebug#ToggleConsoleWindow()<cr>", g:neodbg_keymap_toggle_console_win)
     exe printf("noremap <silent> %s :NeoDebugStop<cr>", g:neodbg_keymap_terminate_debugger)
-
+    exe printf("nmap <silent> %s :call neodebug#GotoConsoleWindow()<cr>i", g:neodbg_keymap_goto_console_win)
 endfunction
 
 function! neodebug#DeleteShotcut()
@@ -1720,6 +1720,7 @@ function! neodebug#DeleteShotcut()
     exec printf("unmap %s", g:neodbg_keymap_step_out)
     exec printf("unmap %s", g:neodbg_keymap_toggle_console_win)
     exec printf("unmap %s", g:neodbg_keymap_terminate_debugger)
+    exec printf("unmap %s", g:neodbg_keymap_goto_console_win)
 endfunction
 
 function! neodebug#InstallMenu()

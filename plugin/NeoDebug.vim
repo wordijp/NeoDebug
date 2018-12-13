@@ -67,7 +67,9 @@ if !exists('g:neodbg_keymap_terminate_debugger')
     let g:neodbg_keymap_terminate_debugger = '<C-C>'
 endif
 
-
+if !exists('g:neodbg_keymap_goto_console_win')
+    let g:neodbg_keymap_goto_console_win = 'i'
+endif
 
 if !exists('g:neodbg_openlocals_default')
     let g:neodbg_openlocals_default    = 1
