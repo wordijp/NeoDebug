@@ -679,7 +679,7 @@ function! s:HandleOutput(chan, msg)
 
     if debugger_line != '' && s:completer_skip_flag == 0 && s:updateinfo_skip_flag == 0
         " Handle 
-        if debugger_line =~ '^\(\*stopped\|\^done,new-thread-id=\|\*running\|=thread-selected\)'
+        if debugger_line =~ '^\(\*stopped\|\^done,new-thread-id=\|\*running\|=thread-selected\|=memory-changed\)'
             call s:HandleCursor(debugger_line)
         elseif debugger_line =~ '^\^done,bkpt=' || debugger_line =~ '=breakpoint-created,'
             call s:HandleNewBreakpoint(debugger_line)
@@ -1384,6 +1384,10 @@ function! s:HandleCursor(msg)
     endif
     if a:msg =~ '\(\*stopped,reason="breakpoint-hit"\)'
         " call  neodebug#UpdateBreakpoints()
+    endif
+
+    if a:msg =~ '=memory-changed'
+        call neodebug#UpdateLocals()
     endif
 
     if a:msg =~ '\(\*stopped\)'
