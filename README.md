@@ -108,6 +108,7 @@ The following shortcuts is applied that is similar to MSVC:
 	<C-S-F10> - set next statement (tb and jump)
 	<C-P> 	- view variable under the cursor
     <TAB>   - trigger complete 
+	<ESC>   - go to startup window(usually editor window)
 
 
 Options:
@@ -132,6 +133,7 @@ Keymaps:
     let g:neodbg_keymap_stop_debugging     = '<S-F5>'       " stop debugging (kill)
     let g:neodbg_keymap_toggle_console_win = '<F6>'         " toggle console window
     let g:neodbg_keymap_terminate_debugger = '<C-C>'        " terminate debugger
+    let g:neodbg_keymap_goto_console_win   = 'i'            " go to console window and switch to insert mode
 
 
 ## FAQ
